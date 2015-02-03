@@ -1,0 +1,34 @@
+Config
+{
+    font = "xft:Terminus:size=11:antialias=true"
+,   alignSep = "}{"  -- separator between left-right alignment
+,   template = "%StdinReader% }{ %cpu% | %memory% | %dynnetwork% >>= %uname% =<< %date%"
+,   commands =
+        [ Run DynNetwork     [ "--template" , "TX:<tx>KB/s|RX:<rx>KB/s"
+                             , "--Low"      , "300000"       -- units: kB/s
+                             , "--High"     , "1200000"       -- units: kB/s
+                             , "--low"      , "green"
+                             , "--normal"   , "orange"
+                             , "--high"     , "red"
+                             ] 10
+
+        , Run Cpu            [ "--Low"      , "50"         -- units: %
+                             , "--High"     , "85"         -- units: %
+                             , "--low"      , "green"
+                             , "--normal"   , "orange"
+                             , "--high"     , "red"
+                             ] 10
+
+        , Run Memory         [ "--template" ,"Mem: <usedvbar> <usedratio>%"
+                             , "--Low"      , "20"        -- units: %
+                             , "--High"     , "90"        -- units: %
+                             , "--low"      , "green"
+                             , "--normal"   , "orange"
+                             , "--high"     , "red"
+                             ] 10
+
+        , Run Com "uname"    ["-s", "-r"] "" 0
+
+        , Run StdinReader
+        ]
+}
