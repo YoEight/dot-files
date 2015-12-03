@@ -3,7 +3,7 @@ import qualified Data.Map as M
 import           Control.Monad
 import qualified Data.Map as M
 import           Graphics.X11.ExtraTypes.XF86
-import qualified Sound.ALSA.Mixer as ALSA
+import qualified Sound.ALSA.Mixer as ALSA -- Requires alsa-mixer package
 import           XMonad
 import qualified XMonad.StackSet as W
 import           XMonad.Hooks.DynamicLog
