@@ -7,6 +7,7 @@ import qualified Sound.ALSA.Mixer as ALSA -- Requires alsa-mixer package
 import           XMonad
 import qualified XMonad.StackSet as W
 import           XMonad.Hooks.DynamicLog
+import           XMonad.Hooks.SetWMName
 import           XMonad.Util.EZConfig
 
 setNumLockMask :: KeyMask -> X ()
@@ -28,14 +29,15 @@ alsa_toggle_mute = io $ ALSA.withMixer "default" toggleMute
 
 anotherKeys :: [((KeyMask, KeySym), X ())]
 anotherKeys =
-    [ ((noModMask, xF86XK_MonBrightnessUp), spawn "xbacklight +5")
-    , ((noModMask, xF86XK_MonBrightnessDown), spawn "xbacklight -5")
+    [ ((noModMask, xF86XK_MonBrightnessUp), spawn "xbacklight +8")
+    , ((noModMask, xF86XK_MonBrightnessDown), spawn "xbacklight -8")
     -- , ((noModMask, xF86XK_AudioLowerVolume), spawn "amixer -D pulse sset Master 5%-> /dev/null")
     , ((noModMask, xF86XK_AudioLowerVolume), alsa_decrease)
     -- , ((noModMask, xF86XK_AudioRaiseVolume), spawn "amixer -D pulse sset Master 5%+ > /dev/null")
     , ((noModMask, xF86XK_AudioRaiseVolume), alsa_increase)
     -- , ((noModMask, xF86XK_AudioMute), spawn "amixer set Master toggle > /dev/null")
     , ((noModMask, xF86XK_AudioMute), alsa_toggle_mute)
+--    , ((mod4Mask, xK_V), spawn "sflock -c ' '")
     ]
 
 myConfig
@@ -44,8 +46,8 @@ myConfig
       , modMask     = mod4Mask
       -- , terminal    = "urxvt"
       -- , terminal    = "dbus-launch gnome-terminal"
-      , terminal    = "gnome-terminal"
-      , startupHook = setNumLockMask 0
+      , terminal    = "mate-terminal"
+      , startupHook = setWMName "LG3D"  -- setNumLockMask 0
       } `additionalKeys` anotherKeys
 
 myWorkspaces = ["I","II","III", "IV", "V"]
