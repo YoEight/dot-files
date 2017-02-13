@@ -1,6 +1,6 @@
 Config
 {
-    font = "xft:Fira Mono:size=11:antialias=true"
+    font = "xft:Inconsolata:size=14:antialias=true"
 ,   hideOnStart = False
 ,   position = Bottom
 ,   persistent = True
@@ -8,7 +8,8 @@ Config
 ,   alignSep = "}{"  -- separator between left-right alignment
 ,   template = "%StdinReader% }{ %dynnetwork% %wlp3s0wi% | %battery% | %multicpu% | %coretemp% | %memory% | %date%"
 ,   commands =
-        [ Run DynNetwork     [ "--template" , "TX:<tx>KB/s|RX:<rx>KB/s"
+        [
+          Run DynNetwork     [ "--template" , "TX:<tx>KB/s|RX:<rx>KB/s"
                              , "--Low"      , "300000"       -- units: kB/s
                              , "--High"     , "1200000"       -- units: kB/s
                              , "--low"      , "green"
@@ -16,14 +17,8 @@ Config
                              , "--high"     , "red"
                              ] 10
 
-        -- , Run DiskU [ ("/", "/: <used>/<size> >")
-        --            , ("/var", "/var: <used>/<size> >")
-        --            , ("/home", "/home: <used>/<size>")
-        --            ] [] 20
-
         , Run Wireless "wlp3s0" [ "--template" , "<fc=#6a9fb5><essid> <quality>%</fc>"
-                             ] 10
-
+                                ] 10
 
         , Run MultiCpu       [ "--template" , "Cpu: <vbar0>.<vbar1>.<vbar2>.<vbar3>"
                              , "--Low"      , "50"         -- units: %
@@ -33,7 +28,7 @@ Config
                              , "--high"     , "red"
                              ] 10
 
-        , Run CoreTemp       [ "--template" , "Temp: <core0>°C:<core1>°C:<core2>°C"
+        , Run CoreTemp       [ "--template" , "Temp: <core0>°C:<core1>°C"
                              , "--Low"      , "70"        -- units: °C
                              , "--High"     , "80"        -- units: °C
                              , "--low"      , "green"
@@ -42,11 +37,6 @@ Config
                              ] 50
 
         , Run Memory         [ "--template" ,"Mem: <used>/<total>MB"
-                             -- , "--Low"      , "2000"        -- units: %
-                             -- , "--High"     , "6000"        -- units: %
-                             -- , "--low"      , "green"
-                             -- , "--normal"   , "orange"
-                             -- , "--high"     , "red"
                              ] 10
 
         , Run Battery        [ "--template" , "Batt: <acstatus>"
@@ -58,11 +48,11 @@ Config
 
                              , "--" -- battery specific options
                                        -- discharging status
-                                       , "-o"	, "<left>% (<timeleft>)"
+                             , "-o"	, "<left>% (<timeleft>)"
                                        -- AC "on" status
-                                       , "-O"	, "<fc=orange>Charging</fc>" -- dAA520
+                             , "-O"	, "<fc=orange>Charging</fc>" -- dAA520
                                        -- charged status
-                                       , "-i"	, "<fc=green>Charged</fc>" -- #006000
+                             , "-i"	, "<fc=green>Charged</fc>" -- #006000
                              ] 50
 
           -- time and date indicator
