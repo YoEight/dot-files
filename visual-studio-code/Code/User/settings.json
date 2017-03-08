@@ -1,0 +1,18 @@
+// Place your settings in this file to overwrite the default settings
+{
+    "editor.fontFamily": "Fira Code Retina",
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/.DS_Store": true,
+        "**/.stack-work": true
+    },
+
+    "editor.fontLigatures": true,
+    "files.trimTrailingWhitespace": true,
+    "editor.fontSize": 14,
+    "workbench.colorTheme": "RealGithub",
+    "editor.renderIndentGuides": true,
+    "editor.rulers": [80]
+}
