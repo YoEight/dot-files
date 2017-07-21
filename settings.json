@@ -1,0 +1,49 @@
+{
+    "editor.fontFamily": "PragmataPro",
+    "editor.fontSize": 12,
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/.stack-work": true,
+        "**/build-stack-cache": true,
+        "**/anomaly-eventstore": true,
+        "**/document-repository": true,
+        "**/build": true,
+        "**/node_modules": true
+    },
+
+    "editor.fontLigatures": true,
+    "files.trimTrailingWhitespace": true,
+    "editor.rulers": [ 80 ],
+    "editor.renderIndentGuides": true,
+    "window.zoomLevel": 0,
+    "spellchecker.documentTypes": [
+        "markdown",
+        "latex",
+        "plaintext",
+        "haskell"
+    ],
+    "cSpell.enabledLanguageIds": [
+        "c",
+        "cpp",
+        "csharp",
+        "go",
+        "haskell",
+        "javascript",
+        "javascriptreact",
+        "json",
+        "latex",
+        "markdown",
+        "php",
+        "plaintext",
+        "python",
+        "text",
+        "typescript",
+        "typescriptreact",
+        "yml"
+    ],
+    "workbench.colorTheme": "Seti"
+}
